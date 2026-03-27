@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+  --text-primary: #e6edf3;
+  --text-secondary: rgba(255,255,255,0.5);
+  --text-muted: rgba(255,255,255,0.2);
+  --green: #34d399;
+  --red: #f87171;
+  --blue: #60a5fa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Ticker tape */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-scroll {
+  display: flex;
+  animation: ticker-scroll 60s linear infinite;
+  width: max-content;
+}
+.ticker-scroll:hover { animation-play-state: paused; }
+
+/* News scroll */
+@keyframes news-scroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.news-scroll {
+  animation: news-scroll 160s linear infinite;
+}
+.news-scroll:hover { animation-play-state: paused; }
+
+/* Live pulse */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.live-pulse { animation: live-pulse 2s ease-in-out infinite; }
+
+/* Flash animations */
+@keyframes flash-green {
+  0%   { background: rgba(52,211,153,0.25); }
+  100% { background: transparent; }
+}
+@keyframes flash-red {
+  0%   { background: rgba(248,113,113,0.25); }
+  100% { background: transparent; }
+}
+.flash-green { animation: flash-green 0.8s ease-out; }
+.flash-red   { animation: flash-red 0.8s ease-out; }
+
+/* Mono font */
+.font-mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+.font-body  { font-family: 'Inter', 'Space Grotesk', sans-serif; }
